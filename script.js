@@ -23,7 +23,7 @@ const photoPick = (image) => `<div class="col mb-4">
                                       Hide
                                     </button>
                                   </div>
-                                  <small class="text-muted">9 mins</small>
+                                  <small class="text-muted">${image.id}</small>
                               </div>
                             </div>
                           </div>
@@ -51,3 +51,30 @@ let loadImages = async (query) => {
   });
 };
 
+let searchQuery;
+
+const handleSearchQuery = (e) => {
+  searchQuery = e.target.value.toLowerCase();
+};
+
+const searchImages = () => {
+  loadImages(searchQuery);
+};
+
+window.onload = () => {
+  const loadImagesBtn = document.querySelector(
+    '.jumbotron a.btn:first-of-type'
+  );
+  loadImagesBtn.onclick = () => loadImages('wine');
+
+  const loadSecondaryImagesBtn = document.querySelector(
+    '.jumbotron a.btn:nth-of-type(2)'
+  );
+  loadSecondaryImagesBtn.onclick = () => loadImages('pizza');
+
+  const searchInput = document.querySelector('.jumbotron .form-control');
+  searchInput.oninput = (event) => handleSearchQuery(event);
+
+  const searchBtn = document.querySelector('.jumbotron button.btn');
+  searchBtn.onclick = () => searchImages();
+};

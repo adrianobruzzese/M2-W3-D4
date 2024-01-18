@@ -12,7 +12,7 @@ const photoPick = (image) => `<div class="col mb-4">
                                     <button
                                       type="button"
                                       class="btn btn-sm btn-outline-secondary"
-                                      onclick="modalLogic(event)"
+                                      
                                     >
                                       View
                                     </button>
@@ -28,7 +28,6 @@ const photoPick = (image) => `<div class="col mb-4">
                             </div>
                           </div>
                         </div>`;
-
 
 const goToDetails = (id) => {
   window.location.assign('./details.html?picId=' + id);

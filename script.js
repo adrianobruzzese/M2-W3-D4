@@ -29,9 +29,7 @@ const photoPick = (image) => `<div class="col mb-4">
                           </div>
                         </div>`;
 
-const goToDetails = (id) => {
-  window.location.assign('./details.html?picId=' + id);
-};
+
 
 const apiKey = 'NFPIxdAAaZqfK3B4EE6nSXm1H4d5wOTkaUqnpA8nxB8p3YJIS7m3SwDP';
 let loadImages = async (query) => {
@@ -50,11 +48,12 @@ let loadImages = async (query) => {
     grid.innerHTML += photoPick(photo);
   });
 };
+//ha senso cancellare tutte le immagini per crearne di nuove??
 
 let searchQuery;
 
 const handleSearchQuery = (e) => {
-  searchQuery = e.target.value.toLowerCase();
+  searchQuery = e.target.value;
 };
 
 const searchImages = () => {
@@ -78,3 +77,7 @@ window.onload = () => {
   const searchBtn = document.querySelector('.jumbotron button.btn');
   searchBtn.onclick = () => searchImages();
 };
+
+const goToDetails = (id) => {
+    window.location.assign('./details.html?picId=' + id);
+  };
